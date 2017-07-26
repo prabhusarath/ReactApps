@@ -1,6 +1,6 @@
 import {ADD_TASK} from '../constant';
 
-export const addTasks = (text) => {
+export const addtask = (text) => {
     const action ={
         type: ADD_TASK,
         text

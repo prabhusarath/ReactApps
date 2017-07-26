@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App'
+import App from './components/App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import reminders from './reducers';
+
+const stores = createStore(reminders);
 
 ReactDOM.render(
-    <App />,document.getElementById('root')
+    <Provider store={stores}>
+    <App />
+    </Provider>,document.getElementById('root')
 )
