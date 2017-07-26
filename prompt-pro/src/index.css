@@ -1,0 +1,17 @@
+.App{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+}
+input {
+    margin: 5px;
+}
+.rem-form {
+    padding: 5px;
+}
