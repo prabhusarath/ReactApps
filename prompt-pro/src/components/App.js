@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {addtask} from '../actions';
+import {bindActionCreators} from 'redux';
 
 class App extends React.Component {
 
@@ -11,7 +14,8 @@ class App extends React.Component {
     }
 
     logReminders(){
-        console.log('Stat now', this.state);
+        //console.log('Stat now', this.state);
+        this.props.addtask(this.state.text);
     }
 
 
@@ -37,4 +41,16 @@ class App extends React.Component {
     }
 }
 
-export default App;
+function mapStateToProps(state){
+    return{
+        reminders: state
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({addtask},dispatch);
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

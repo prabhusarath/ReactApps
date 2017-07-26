@@ -8,3 +8,5 @@ export const addtask = (text) => {
     console.log('Action Happening: '+ action.type + 'Data: ' + action.text);
     return action;
 }
+
+export default addtask;
