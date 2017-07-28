@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {addtask,deltask} from '../actions';
 import {bindActionCreators} from 'redux';
 import '../index.css';
+import moment from 'moment';
 
 class App extends React.Component {
 
@@ -33,12 +34,15 @@ class App extends React.Component {
                     reminders.map( rem => {
                         return (
                             <li key={rem.id} className="list-group-item ">
-                                <div>{ rem.text }</div>
-                                <div>{ rem.due }</div>
-                                <div className="list-item delete-button"
-                                     onClick={() => this.delReminders(rem.id)}>
-                                    &#x2715;
+                                <div className="list-item">
+                                    <div>{ rem.text }</div>
+                                    <div className="list-item delete-button"
+                                         onClick={() => this.delReminders(rem.id)}>
+                                        X
+                                    </div>
+                                    <div><em>{moment(new Date( rem.due )).fromNow()}</em></div>
                                 </div>
+
                             </li>
                         )
                     })
