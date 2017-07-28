@@ -15,3 +15,12 @@ input {
 .rem-form {
     padding: 5px;
 }
+
+.list-form{
+    display: inline-block;
+}
+
+.delete-button{
+    float: right;
+    padding-left: 5px;
+}

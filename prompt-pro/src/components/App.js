@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addtask} from '../actions';
+import {addtask,deltask} from '../actions';
 import {bindActionCreators} from 'redux';
 import '../index.css';
 
@@ -14,9 +14,14 @@ class App extends React.Component {
 
     }
 
-    logReminders(){
+    addReminders(){
         //console.log('Stat now', this.state);
         this.props.addtask(this.state.text);
+    }
+
+    delReminders(id){
+        //console.log('Stat now', this.state);
+        this.props.deltask(this.state.id);
     }
 
     renderReminders(){
@@ -29,6 +34,10 @@ class App extends React.Component {
                         return (
                             <li key={rem.id} className="list-group-item ">
                                 <div>{ rem.text }</div>
+                                <div className="list-item delete-button"
+                                     onClick={() => this.delReminders(rem.id)}>
+                                &#x2715;
+                                </div>
                             </li>
                         )
                     })
@@ -53,7 +62,7 @@ class App extends React.Component {
                     <button
                         type="button"
                         className="btn btn-success"
-                    onClick={() => this.logReminders()}> Add Task
+                    onClick={() => this.addReminders()}> Add Task
                     </button>
                 </div>
                 { this.renderReminders() }
@@ -69,7 +78,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({addtask},dispatch);
+    return bindActionCreators({addtask,deltask},dispatch);
 }
 
 
