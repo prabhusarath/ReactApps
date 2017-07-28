@@ -9,14 +9,14 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            due: ''
         }
 
     }
 
     addReminders(){
-        //console.log('Stat now', this.state);
-        this.props.addtask(this.state.text);
+        this.props.addtask(this.state.text,this.state.due);
     }
 
     delReminders(id){
@@ -34,9 +34,10 @@ class App extends React.Component {
                         return (
                             <li key={rem.id} className="list-group-item ">
                                 <div>{ rem.text }</div>
+                                <div>{ rem.due }</div>
                                 <div className="list-item delete-button"
                                      onClick={() => this.delReminders(rem.id)}>
-                                &#x2715;
+                                    &#x2715;
                                 </div>
                             </li>
                         )
@@ -56,6 +57,11 @@ class App extends React.Component {
                         <input className="form-control"
                                placeholder="Task to do .."
                                onChange={event => this.setState({text: event.target.value})}
+                        />
+                        <input
+                            className="form-control"
+                            type="datetime-local"
+                            onChange={event => this.setState({due: event.target.value})}
                         />
                     </div>
 

@@ -1,7 +1,9 @@
 const reminder = (actions) => {
+    let { text,due } = actions
     return {
-        text: actions.text,
-        id: Math.random()
+        id: Math.random(),
+        text,
+        due
     }
 }
 

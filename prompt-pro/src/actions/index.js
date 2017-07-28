@@ -1,7 +1,8 @@
-export const addtask = (text) => {
+export const addtask = (text,due) => {
     const action ={
         type: 'ADD_TASK',
-        text
+        text,
+        due
     }
     console.log('Action Happening: '+ action.type + 'Data: ' + action.text);
     return action;
