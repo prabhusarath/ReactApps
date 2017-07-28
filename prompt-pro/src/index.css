@@ -13,7 +13,7 @@ input {
     margin: 5px;
 }
 .rem-form {
-    padding: 5px;
+    padding: 10px;
 }
 
 .list-form{
@@ -22,5 +22,5 @@ input {
 
 .delete-button{
     float: right;
-    padding-left: 5px;
+    padding-left: 10px;
 }

@@ -17,5 +17,4 @@ export const deltask = (id) => {
     return actions;
 }
 
-export default addtask;
-export default deltask;
+export default {addtask,deltask};

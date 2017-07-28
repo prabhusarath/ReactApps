@@ -21,7 +21,7 @@ class App extends React.Component {
 
     delReminders(id){
         //console.log('Stat now', this.state);
-        this.props.deltask(this.state.id);
+        this.props.deltask(id);
     }
 
     renderReminders(){
