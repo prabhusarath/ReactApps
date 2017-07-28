@@ -1,3 +1,6 @@
+import { bake_cookie,read_cookie } from 'sfcookies';
+
+
 const reminder = (actions) => {
     let { text,due } = actions
     return {
@@ -15,14 +18,16 @@ const removeById = (state= [], id) => {
 const reminders = (state =[], action) => {
 
     let reminders = null;
+    state =read_cookie('reminders')
 
     switch(action.type){
         case 'ADD_TASK':
             reminders = [...state,reminder(action)];
-            console.log('reminders',reminders);
+            bake_cookie('reminders',reminders);
             return reminders;
         case 'DEL_TASK':
             reminders = removeById(state, action.id);
+            bake_cookie('reminders',reminders);
             return reminders;
         default:
             return state;
