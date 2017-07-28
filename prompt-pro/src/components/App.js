@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addtask,deltask} from '../actions';
+import {addtask,deltask,cleartask} from '../actions';
 import {bindActionCreators} from 'redux';
 import '../index.css';
 import moment from 'moment';
@@ -23,6 +23,10 @@ class App extends React.Component {
     delReminders(id){
         //console.log('Stat now', this.state);
         this.props.deltask(id);
+    }
+
+    clearReminders(){
+        this.props.cleartask();
     }
 
     renderReminders(){
@@ -76,6 +80,14 @@ class App extends React.Component {
                     </button>
                 </div>
                 { this.renderReminders() }
+                <div className="btn btn-danger"
+                     onClick={() => this.clearReminders()}>
+                    Clear Reminders
+
+
+
+
+                </div>
             </div>
         )
     }
@@ -88,7 +100,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({addtask,deltask},dispatch);
+    return bindActionCreators({addtask,deltask,cleartask},dispatch);
 }
 
 

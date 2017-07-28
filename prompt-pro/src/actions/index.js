@@ -18,4 +18,11 @@ export const deltask = (id) => {
     return actions;
 }
 
-export default {addtask,deltask};
+export const cleartask = () => {
+    const actions ={
+        type: 'CLEAR_TASK'
+    }
+    return actions;
+}
+
+export default {addtask,deltask,cleartask};
